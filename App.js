@@ -10,7 +10,7 @@ const DATA = [
   { id: '4', title: 'Mariana Napolitani', mensagem: 'Live your purpose.' },
   { id: '5', title: 'Olivia Wilson', mensagem: 'You got this.' },
   { id: '6', title: 'Rachelle Beaudry', mensagem: 'You re wonderful.' },
-  { id: '7', title: 'Soo Jin Ae', mensagem: 'Keep it simple.' }
+  { id: '7', title: 'Soo Jin Ae', mensagem: 'Keep it simple' }
 ];
 
 const Stack = createNativeStackNavigator();
