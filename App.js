@@ -30,8 +30,14 @@ const Item = ({ title, mensagem }) => (
 
 function Tela1() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', marginTop: 60 }}>
+    <View style={{ flex: 1, alignItems: 'center', marginTop: 60, backgroundColor: '#ffffff' }}>
+
+      <View style={styles.header}>
+        <Text style={styles.Title}>Messages & Chat</Text>
+      </View>
+
       <FlatList 
+      contentContainerStyle={{ paddingTop: 10 }}
         data={DATA} 
         renderItem={({ item }) => (
           <Pressable onPress={() => alert(`Você clicou em ${item.title}`)}>
@@ -40,7 +46,31 @@ function Tela1() {
         )} 
         keyExtractor={item => item.id} 
       />
+
+      <View style={styles.menuInf}>
+        <Pressable style={styles.menuItem}>
+          <Text>🏠</Text>
+          <Text style={styles.menuTexto}>Inicio</Text>
+        </Pressable>
+
+        <Pressable style={styles.menuItem}>
+          <Text>💬</Text>
+          <Text style={[styles.menuTexto, { color: '#4A6CF7' }]}>Chat</Text>
+        </Pressable>
+
+        <Pressable style={styles.menuItem}>
+          <Text>📧</Text>
+          <Text style={styles.menuTexto}>Email</Text>
+        </Pressable>
+
+        <Pressable style={styles.menuItem}>
+          <Text>👤</Text>
+          <Text style={styles.menuTexto}>Perfil</Text>
+        </Pressable>
+      </View>
     </View>
+
+    
   );
 }
 
@@ -56,16 +86,52 @@ export default function App() {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#dad8d8',
+    backgroundColor: '#ececec',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
     width: 320,
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 8
+    borderRadius: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#ddd'
   },
   title: {
     fontWeight: 'bold'
-  }
+  },
+
+  header: {
+  height: 100,
+  justifyContent: 'flex-end',
+  paddingBottom: 15,
+  paddingHorizontal: 20,
+  backgroundColor: '#ffffff',
+},
+
+Title: {
+  fontSize: 24,
+  fontWeight: 'bold',
+},
+menuInf: {
+  position: 'absolute',
+  bottom: 0,
+  width: '100%',
+  height: 60,
+  backgroundColor: '#f2f2f2',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  borderTopWidth: 1,
+  borderTopColor: '#ddd'
+},
+
+menuItem: {
+  alignItems: 'center'
+},
+
+menuTexto: {
+  fontSize: 12,
+  color: 'gray'
+},
 });
